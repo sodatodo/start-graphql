@@ -4,6 +4,7 @@ const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
 
 const file = path.join(__dirname, 'config.json');
 let connectUrl = ''
@@ -12,6 +13,8 @@ const data = fs.readFileSync(file, 'utf-8');
 connectUrl = JSON.parse(data).connectUrl;
 
 const app = express();
+
+app.use(cors());
 
 if (connectUrl.length === 0) {
     console.error('请配置数据库');
