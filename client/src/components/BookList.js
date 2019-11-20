@@ -28,7 +28,6 @@ class BookList extends React.Component {
         return (
             <div>
                 <ul id="book-list">
-                    <li>Book name</li>
                     {this.displayBooks()}
                 </ul>
                 <BookDetail bookId={ this.state.selected } />
